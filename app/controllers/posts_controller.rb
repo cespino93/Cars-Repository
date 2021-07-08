@@ -18,7 +18,7 @@ class PostsController < ApplicationController
         @posts = Post.alpha.includes(:brand, :user)
     end
         @posts = @posts.search(params[:q].downcase) if params[:q] && !params[:q].empty?
-        @posts = @posts.filter(params[:post][:category_id]) if params[:post] && params[:post][:category_id] != ""
+        @posts = @posts.filter(params[:post][:brand_id]) if params[:post] && params[:post][:brand_id] != ""
   end
 
     def create
@@ -54,6 +54,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title,:content, :category_id, category_attributes: [:name])
+    params.require(:post).permit(:title,:content, :brand_id, brand_attributes: [:name])
   end
 end

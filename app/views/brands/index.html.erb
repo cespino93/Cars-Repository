@@ -1,0 +1,12 @@
+<ul>
+  <% @brands.each do |brand| %>
+    <li>
+      <%= link_to brand.name, brand_path(brand) %>
+      <ol>
+        <% brand.posts.each do  |post| %>
+          <li><%= link_to post.title, post_path(post)  %></li>
+        <% end  %>
+      </ol>
+    </li>
+  <% end %>
+</ul>

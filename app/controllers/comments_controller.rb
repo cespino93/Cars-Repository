@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
         @error = "That post doesnt exist" if params[:post_id]
         @comments = Comment.all
       end
-end
+    end
 
     def new
       if params[:post_id] && @post = Post.find_by_id(params[:post_id])
@@ -59,6 +59,6 @@ end
     end
 
     def redirect_if_not_comment_author
-        redirec_to comments_path if @comment.user != current_user
+        redirect_to comments_path if @comment.user != current_user
     end
 end
