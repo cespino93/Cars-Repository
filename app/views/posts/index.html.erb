@@ -1,0 +1,20 @@
+<%= index_display_header %>
+<%= form_tag("/posts", method: 'get') do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br>
+<%= form_tag("/posts", method: 'get') do %>
+  <%= label_tag(:brand_id, "Select a Brand:") %>
+  <%= collection_select(:post,:brand_id, Brand.all,:id, :name) %>
+  <%= submit_tag("Filter") %>
+<% end %>
+<% if @posts.blank? %>
+
+    <h2>No posts yet. Write a post <%= link_to "here", new_post_path%></h2>
+
+<% else %>
+  <%= render partial: "posts", locals: {posts: @posts} %>
+<% end %>

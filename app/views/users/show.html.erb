@@ -1,7 +1,5 @@
 <h1>Welcome <%=@user.username %></h1> 
 
-<%= %>
+<%= display_posts %>
 
-<form action="logout" method="delete">
-    <input type="submit", value="Logout">
-</form>
+<%= render partial: "posts/posts", locals {posts: @user.posts} %>
