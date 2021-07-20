@@ -5,7 +5,7 @@ class BrandsController < ApplicationController
     end
     
     def show
-      @brand = Brand.find_by_id(param[:id])
+      @brand = Brand.find_by_id(params[:id])
     end
 
     def new

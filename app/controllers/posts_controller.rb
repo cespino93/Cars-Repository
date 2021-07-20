@@ -12,17 +12,17 @@ class PostsController < ApplicationController
 
     def index
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
-        @posts = @user.posts.alpha
+      @posts = @user.posts.alpha
     else
-        @error = "That user doesn't exist" if params[:user_id]
-        @posts = Post.alpha.includes(:brand, :user)
+      @error = "That user doesn't exist" if params[:user_id]
+      @posts = Post.alpha.includes(:brand, :user)
     end
-        @posts = @posts.search(params[:q].downcase) if params[:q] && !params[:q].empty?
-        @posts = @posts.filter(params[:post][:brand_id]) if params[:post] && params[:post][:brand_id] != ""
+      @posts = @posts.search(params[:q].downcase) if params[:q] && !params[:q].empty?
+      @posts = @posts.filter(params[:post][:brand_id]) if params[:post] && params[:post][:brand_id] != ""
   end
 
-    def create
-    @post = current_user.posts.build(post_params)
+  def create
+      @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to posts_path
     else

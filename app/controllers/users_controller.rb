@@ -20,10 +20,6 @@ class UsersController < ApplicationController
         redirect_to '/' if !@user
     end  
 
-    def most_active
-        @users = User.most_active
-    end
-
     private
     
     def user_params

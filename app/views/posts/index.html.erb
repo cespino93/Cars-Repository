@@ -8,7 +8,7 @@
 <br>
 <%= form_tag("/posts", method: 'get') do %>
   <%= label_tag(:brand_id, "Select a Brand:") %>
-  <%= collection_select(:post,:brand_id, Brand.all,:id, :name) %>
+  <%= collection_select(:post, :brand_id, Brand.all, :id, :name) %>
   <%= submit_tag("Filter") %>
 <% end %>
 <% if @posts.blank? %>

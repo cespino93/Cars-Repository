@@ -3,7 +3,7 @@
 <%= render partial: "layouts/errors", locals: {object: @post} %>
 <%= form_for(@post) do |f|%>
   <%= f.label "Choose a brand:" %>
-  <%= f.collection_select :brand_id, Category.all, :id, :name, include_blank: true %>
+  <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: true %>
 
 
    <p>or create a new brand:

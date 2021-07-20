@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>The Car Repository</title>
+    <title>The Cars Repository</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,7 +17,7 @@
       <%= link_to "All Posts", posts_path %> |
       <%= link_to "My Posts", user_posts_path(current_user) %> |
       <%= link_to "Add a Comment", new_comment_path %> |
-      <%= link_to "All Brands", brands_path %> |
+      <%= link_to "All Brands", brand_path %> |
       <%= link_to "Home", user_path(current_user)%> |
       <%= link_to "Logout", logout_path, method:"delete"%>
       <% else %>

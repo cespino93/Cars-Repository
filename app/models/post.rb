@@ -1,12 +1,12 @@
 class Post < ApplicationRecord
   belongs_to :user
-  belongs_to :category
+  belongs_to :brand
   has_many :comments
   has_many :users, through: :comments
   validates :content, :title, presence: true
   validate  :too_many_posts
 
-  delegate :name, to: :category
+  delegate :name, to: :brand
 
   scope :alpha, -> { order(:title) }
   scope :most_comments, -> {left_joins(:comments).group('posts.id').order('count(comments.post_id) desc')}
@@ -32,4 +32,5 @@ class Post < ApplicationRecord
     errors.add(:post_id, "- can't post more than 10 times per day.")
   end
 end
+
 end
